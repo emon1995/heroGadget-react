@@ -31,3 +31,4 @@ Emoji -> [EmojiPedia](https://emojipedia.org/)
 
 Image -> [Freepik](https://www.freepik.com/)
 
+# heroGadget-react
