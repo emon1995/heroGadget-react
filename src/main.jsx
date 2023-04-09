@@ -7,12 +7,14 @@ import ErrorPage from "./components/ErrorPage";
 import Home from "./components/Home";
 import About from "./components/About";
 import Shop from "./components/Shop";
+import { getProductsAndCartData } from "./LoaderData/getLoaderData";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
+    loader: getProductsAndCartData,
     children: [
       {
         path: "/",
