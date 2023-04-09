@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
 import { CartContext } from "../App";
 import CartItem from "./Cards/CartItem";
+import { deleteShoppingCart, removeFromDB } from "../utils/fakeDB";
+import { toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [cart, setCart] = useContext(CartContext || []);
@@ -12,11 +15,30 @@ const Cart = () => {
     }
   }
 
-  const handleRemoveItem = () => {};
+  const handleRemoveItem = (id) => {
+    const remaining = cart.filter((product) => product.id !== id);
+    setCart(remaining);
+    removeFromDB(id);
+    toast.error("Product Removed! 🔥");
+  };
 
-  const deleteCartHandler = () => {};
+  const deleteCartHandler = () => {
+    if (cart.length) {
+      setCart([]);
+      deleteShoppingCart();
+      return toast.error("All Items Removed! 🔥");
+    }
+    return toast.error("Cart is empty! 🔥");
+  };
 
-  const orderHandler = () => {};
+  const orderHandler = () => {
+    if (cart.length) {
+      setCart([]);
+      deleteShoppingCart();
+      return toast.success("Order Placed! 👍");
+    }
+    return toast.error("Cart is empty! 🔥");
+  };
 
   return (
     <div className="flex min-h-screen items-start justify-center bg-gray-100 text-gray-900">
