@@ -9,6 +9,7 @@ import About from "./components/About";
 import Shop from "./components/Shop";
 import { getProductsAndCartData } from "./LoaderData/getLoaderData";
 import { Toaster } from "react-hot-toast";
+import Cart from "./components/Cart";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About></About>,
+      },
+      {
+        path: "/cart",
+        element: <Cart></Cart>,
       },
     ],
   },
