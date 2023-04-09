@@ -23,7 +23,7 @@ const Shop = () => {
       newCart = [...rest, exists];
     }
 
-    setCart[newCart];
+    setCart(newCart);
     addToDB(product.id);
     toast.success("Product Added! 🛒", { autoClose: 500 });
   };

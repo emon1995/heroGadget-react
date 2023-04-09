@@ -23,7 +23,7 @@ const Cart = () => {
   };
 
   const deleteCartHandler = () => {
-    if (cart.length) {
+    if (cart.length > 0) {
       setCart([]);
       deleteShoppingCart();
       return toast.error("All Items Removed! 🔥");
@@ -32,7 +32,7 @@ const Cart = () => {
   };
 
   const orderHandler = () => {
-    if (cart.length) {
+    if (cart.length > 0) {
       setCart([]);
       deleteShoppingCart();
       return toast.success("Order Placed! 👍");
